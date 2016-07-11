@@ -1,0 +1,21 @@
+language: node_js
+sudo: false
+node_js:
+- 4.3.1
+deploy:
+  provider: heroku
+  api_key:
+    secure: gSmTKxTJh99SjOdIMfpbmKWjiZFXkJR/9pZ438/7o2miPXFl9lBn7l+Nm6m1M019lSq2SulAqQB89r0RaPcgphYSHIraq5FBqmnzbubMSP5f+iihFgCiJPqYlTssM0Kx5O/GtWsF6f3o3x2GF6F00rOpTRfpTfAW74F1dauzx9BGV9wJQokKU3yg0QUSrxceyTVAKOc2ymEXle6uy07kMW+g59G3gfH7WszEq3DXzvGauj9h/0JqMRiAZhge43Bgi5QzLZIU0fmHUbO/OpS0Pk6vk4gcSGInaf5GZDJ+qsZLiQhy++4lKyJUH+9leo7JwdBEC4jTGbiNRVhORkqof+c1MM+aPlQy+BnFVSNoyKW44FLUQXqq/mXvhaJOfHBR8DSHaIRnO9LyNSFvoip6i5gTm07xafvrY8ZS+NNqZ7e0RdYWTbLXt86aQG/vBuuoLBmp51kPpRcf0r6EnADqGoIjBXhi2zuCiHAKYElfLjgvllLVZpwV9RXqW9hTLghCedtIZMUGR4Cvh7mMvH7SOxyjgknO0ZX/2d1CjIJEkUeYoDQLFwT4b+My2zikyA5fLBlpEpn5OJZpRvSkp4pm7d/WD9LMbXya/emeRM+2kWDRUHqw0NPfJZsH0Nzaw3X+8jUybADa3HSAh3YVnb2T8mEToBOI6GNBXDfAcRaPqf0=
+  app:
+    development: mylumper-webapp-dev
+    qa: mylumper-webapp-qa
+    staging: mylumper-webapp-staging
+  skip_cleanup: true
+branches:
+  only:
+  - development
+  - qa
+  - staging
+cache:
+  directories:
+    - node_modules
